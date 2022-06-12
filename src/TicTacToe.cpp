@@ -1,4 +1,4 @@
-#include "TicTacToe.hh"
+#include "../inc/TicTacToe.hh"
 
 game::game(int a, int b)
 {
@@ -206,9 +206,9 @@ data game::MiniMax(data coordinates, int alpha, int beta, bool player)
     if (player == 1) /* Gracz X */
     {
         data max;
-        max.result = -2; /* Inicjacja wartosci, ktore nie wystepuja*/
+        max.result = -10; /* Inicjacja wartosci, ktore nie wystepuja*/
         data eval;
-        eval.result = -2; /* Inicjacja wartosci, ktore nie wystepuja*/
+        eval.result = -10; /* Inicjacja wartosci, ktore nie wystepuja*/
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -225,12 +225,12 @@ data game::MiniMax(data coordinates, int alpha, int beta, bool player)
                     board[i][j] = ' '; /* cofniecie ruchu */
                     empty++;
 
-                    if (max.result < eval.result && eval.result != -2) /* Jesli danych ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
+                    if (max.result < eval.result && eval.result != -10) /* Jesli danych ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
                     {
                         max = eval;
                     }
 
-                    if (eval.result != -2) /* Ustawienie alfa jako wieksza liczbe z nowego wyniku i poprzedniej alfy */
+                    if (eval.result != -10) /* Ustawienie alfa jako wieksza liczbe z nowego wyniku i poprzedniej alfy */
                         alpha = std::max(alpha, eval.result);
 
                     if (beta <= alpha) /* Jesli alfa wieksza badz rowa beta przerwij petle */
@@ -246,9 +246,9 @@ data game::MiniMax(data coordinates, int alpha, int beta, bool player)
     if (player == 0) /* Gracz O */
     {
         data min;
-        min.result = 2; /* Inicjacja wartosci, ktore nie wystepuja*/
+        min.result = 10; /* Inicjacja wartosci, ktore nie wystepuja*/
         data eval;
-        eval.result = -2; /* Inicjacja wartosci, ktore nie wystepuja*/
+        eval.result = -10; /* Inicjacja wartosci, ktore nie wystepuja*/
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -265,12 +265,12 @@ data game::MiniMax(data coordinates, int alpha, int beta, bool player)
                     board[i][j] = ' '; /* cofniecie ruchu */
                     empty++;
 
-                    if (min.result > eval.result && eval.result != -2) /* Jesli danych ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
+                    if (min.result > eval.result && eval.result != -10) /* Jesli danych ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
                     {
                         min = eval;
                     }
 
-                    if (eval.result != -2) /* Ustawienie beta jako mniejsza liczbe z nowego wyniku i poprzedniej bety */
+                    if (eval.result != -10) /* Ustawienie beta jako mniejsza liczbe z nowego wyniku i poprzedniej bety */
                         beta = std::min(beta, eval.result);
 
                     if (beta <= alpha) /* Jesli alfa wieksza badz rowa beta przerwij petle */
