@@ -147,7 +147,7 @@ int game::result()
     return 0; /* Jezeli brak zwyciestwa zwroc 0 */
 }
 
-bool game::ifEnd()
+bool game::isOver()
 {
 
     int winner = this->result();
@@ -198,7 +198,7 @@ void game::clearBoard(int i, int j)
 
 data game::MiniMax(data coordinates, int alpha, int beta, bool player)
 {
-    if (ifEnd()) /* Jesli koniec, zwroc wynik */
+    if (isOver()) /* Jesli koniec, zwroc wynik */
     {
         coordinates.result = result();
         return coordinates;

@@ -2,6 +2,7 @@
 
 void playerMove(int &x, int &y, int size, char choice)
 {
+
     std::cout << "Ruch " << choice << ":" << std::endl
               << "os x: ";
     std::cin >> x;
@@ -9,14 +10,9 @@ void playerMove(int &x, int &y, int size, char choice)
               << "os y: ";
     std::cin >> y;
 
-    while (x < 0 || y < 0 || x > size || y > size)
+    if (x < 0 || y < 0 || x > size || y > size)
     {
-        std::cout << "Bledne wsporzedne, sprobuj jeszcze raz:" << std::endl
-                  << "os x: ";
-        std::cin >> x;
-        std::cout << std::endl
-                  << "os y: ";
-        std::cin >> y;
+        throw(std::out_of_range("Bledne wpolrzedne, sprobuj ponownie.\n"));
     }
 }
 
@@ -29,7 +25,8 @@ int main()
     int win;
     char choice = 'c';
     int x = -1, y = -1;
-
+    std::cout << "Witaj w grze w Kolko i Krzyzyk!\n"
+              << std::endl;
     std::cout << "Podaj wymiary planszy MxM do gry (Podaj M, przedzial 3-5):";
     std::cin >> size;
     if (!std::cin || size < 3 || size > 5)
@@ -62,7 +59,7 @@ int main()
     gameOn.display();
 
     // dopóki nie nastąpi koniec gry
-    while (!gameOn.ifEnd())
+    while (!gameOn.isOver())
     {
         // jeśli gracz gra O, wykonuje ruch, w przeciwnym wypadku rusza się SI
         if (choice == 'O')
@@ -83,7 +80,7 @@ int main()
         gameOn.display();
 
         // jeśli gra się nie skończyła oraz gracz gra X, wykonuje ruch, w przeciwnym wypadku rusza się SI
-        if (gameOn.ifEnd() == false)
+        if (gameOn.isOver() == false)
         {
             if (choice == 'X')
             {

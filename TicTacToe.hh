@@ -4,7 +4,6 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <cctype>
 
 struct data /* Struktura wykorzystywana przez algorytm Minimax do zwracania najlepszego ruchu*/
 {
@@ -24,7 +23,7 @@ public:
     bool move(bool who, int X, int Y);                                /*Wybor albo kolka albo krzyzyka, x,y - koordynaty*/
     void display();                                                   /*Wyswietlenie aktualnej sytuacji na planszy w terminalu */
     int result();                                                     /*Wynik rozgrywki (1 dla wygranej x, -1 dla y, a 0 w przypadku remisu*/
-    bool ifEnd();                                                     /*Sprawdzenie czy rozgrywka dobiegla konca, jeżeli tak zwraca 1 */
+    bool isOver();                                                    /*Sprawdzenie czy rozgrywka dobiegla konca, jeżeli tak zwraca 1 */
     int ifEmpty();                                                    /*Sprawdzenie ile zostalo pustych pol na planszy*/
     int throwSize();                                                  /*Zwraca rozmiar planszy*/
     bool CheckIfSpaceEmpty(int i, int j);                             /*Sprawdzenie czy dane pole jest puste, jezeli tak zwraca 1  */
