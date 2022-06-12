@@ -35,7 +35,7 @@ int main()
         return 0;
     }
     else
-        std::cout << "Ile pol pod rzad aby wygrac (przedzial od 2 do 5):";
+        std::cout << "Ile pol pod rzad aby wygrac (przedzial od 2 do 3):"; /* Teoretycznie wartosc ta mozna ustawic na wieksza, ale w praktyce zajmuje to zbyt duzo czasu dla algorytmu na podjecie decyzji, stad decyzja o maksymalne ilosci w postaci 3*/
     std::cin >> win;
     if (!std::cin || win < 2 || win > 3)
     {

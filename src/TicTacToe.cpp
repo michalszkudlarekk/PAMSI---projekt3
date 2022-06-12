@@ -225,7 +225,7 @@ data game::MiniMax(data coordinates, int alpha, int beta, bool player)
                     board[i][j] = ' '; /* cofniecie ruchu */
                     empty++;
 
-                    if (max.result < eval.result && eval.result != -2) /* Jesli danych ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
+                    if (max.result < eval.result && eval.result != -2) /* Jesli dany ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
                     {
                         max = eval;
                     }
@@ -265,7 +265,7 @@ data game::MiniMax(data coordinates, int alpha, int beta, bool player)
                     board[i][j] = ' '; /* cofniecie ruchu */
                     empty++;
 
-                    if (min.result > eval.result && eval.result != -2) /* Jesli danych ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
+                    if (min.result > eval.result && eval.result != -2) /* Jesli dany ruch jest lepszy od dotychczasowego najlepszego, zaktualizuj informacje o wykonanych ruchach */
                     {
                         min = eval;
                     }
