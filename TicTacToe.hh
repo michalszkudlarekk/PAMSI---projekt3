@@ -4,10 +4,11 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <cctype>
 
 struct data /* Struktura wykorzystywana przez algorytm Minimax do zwracania najlepszego ruchu*/
 {
-    int x, y, result;
+    int X, Y, result;
 };
 
 class game
@@ -20,12 +21,12 @@ private:
 
 public:
     game(int a, int b);                                               /*a-rozmiar, b-ilosc w rzedzie do wygranej*/
-    bool move(bool who, int x, int y);                                /*Wybor albo kolka albo krzyzyka, x,y - koordynaty*/
+    bool move(bool who, int X, int Y);                                /*Wybor albo kolka albo krzyzyka, x,y - koordynaty*/
     void display();                                                   /*Wyswietlenie aktualnej sytuacji na planszy w terminalu */
-    int score;                                                        /*Wynik rozgrywki (1 dla wygranej x, -1 dla y, a 0 w przypadku remisu*/
-    bool ifEnd;                                                       /*Sprawdzenie czy rozgrywka dobiegla konca, jeżeli tak zwraca 1 */
-    int ifEmpty;                                                      /*Sprawdzenie ile zostalo pustych pol na planszy*/
-    int throwSize;                                                    /*Zwraca rozmiar planszy*/
+    int result();                                                     /*Wynik rozgrywki (1 dla wygranej x, -1 dla y, a 0 w przypadku remisu*/
+    bool ifEnd();                                                     /*Sprawdzenie czy rozgrywka dobiegla konca, jeżeli tak zwraca 1 */
+    int ifEmpty();                                                    /*Sprawdzenie ile zostalo pustych pol na planszy*/
+    int throwSize();                                                  /*Zwraca rozmiar planszy*/
     bool CheckIfSpaceEmpty(int i, int j);                             /*Sprawdzenie czy dane pole jest puste, jezeli tak zwraca 1  */
     void clearBoard(int i, int j);                                    /* Resetuje pole do wartosci domyslnej*/
     data MiniMax(data coordinates, int alpha, int beta, bool player); /* Algorytm MiniMax z alfa,beta cieciami zawierajacy informacji na temat najlepszego dostepnego ruchu*/
